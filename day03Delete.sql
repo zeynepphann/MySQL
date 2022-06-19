@@ -71,7 +71,7 @@ select * from ogrenciler;
 -- SORU6: id'si 123, 125 veya 126 olanları silelim.
 delete from ogrenciler where id in(123,125,126);
 delete from ogrenciler where id=123 or id= 125 or id=126;
-    
+select * from ogrenciler;
     
 -- SORU7:  TABLODAKİ TÜM KAYITLARI SİLELİM..
 delete from ogrenciler;

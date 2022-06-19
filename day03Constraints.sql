@@ -58,12 +58,12 @@ INSERT INTO adresler VALUES('10003','Mutlu Sok', '40.Cad.','IST');
 INSERT INTO adresler VALUES('10003','Can Sok', '50.Cad.','Ankara');
 INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
 
-select * from adresler;
-
+select * from 
+adresler;
 -- parent tabloda olmayan id ile child a ekleme yapamayiz
 INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep');
    
--- FK'ye null değeri atanabilir.
+-- FOREIGN KEY'ye null değeri atanabilir.
 INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep');
 INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Maraş');
 
@@ -97,7 +97,7 @@ delete from adresler where adres_id= 10002; -- child
   Her defasında önce child tablodaki verileri silmek yerine ON DELETE CASCADE
   silme özelliğini aktif hale getirebiliriz.
  
-  Bunun için FK olan satırın en sonuna ON DELETE CASCADE komutunu yazmak yeterli
+  Bunun için FOREIGN KEY olan satırın en sonuna ON DELETE CASCADE komutunu yazmak yeterli
  
 ==============================================================================*/
 
@@ -125,7 +125,7 @@ CONSTRAINT notlar_fk FOREIGN KEY (talebe_id) REFERENCES talebeler(id)
 on delete cascade);
 
 -- on delete cascade sayesinde
--- parent taki silinen bir kayıt ile ilişkili olan tüm child kayıtlarınısiler.  
+-- parent taki silinen bir kayıt ile ilişkili olan tüm child kayıtlarını siler.  
 -- cascade yoksa önce child temizlenir sonra parent
    
 
