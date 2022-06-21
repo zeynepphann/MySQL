@@ -76,7 +76,7 @@ select urun_id, musteri_isim from mart where urun_id in(10, 20);
 SORU2: Her iki ayda birden satılan ürünlerin URUN_ISIM'lerini ve bu ürünleri
 NİSAN ayında satın alan MUSTERI_ISIM'lerini listeleyen bir sorgu yazınız. 
 -----------------------------------------------------------------------------*/ 
-
+select musteri_isim from nisan where exists(select urun_isim from mart where mart.urun_isim=nisan.urun_isim);
 
 
 
@@ -85,6 +85,8 @@ NİSAN ayında satın alan MUSTERI_ISIM'lerini listeleyen bir sorgu yazınız.
 /* SORU3: Her iki ayda ortak satilmayan ürünlerin URUN_ISIM'lerini ve   bu ürünleri
   NİSAN ayında satın alan MUSTERI_ISIM'lerini listeleyen bir sorgu yazınız. 
  -----------------------------------------------------------------------------*/
+
+select musteri_isim from nisan where not exists(select urun_isim from mart where mart.urun_isim=nisan.urun_isim);
 
 
 /*===================== IS NULL, IS NOT NULL, COALESCE ========================
@@ -124,7 +126,7 @@ select * from insanlar where isim is null;
 select * from insanlar where isim is not null;
 
 
--- SORU6: isim 'i NULL olan kişilerin isim'ine NO NAME atayınız.
+-- SORU6: isim'i NULL olan kişilerin isim'ine NO NAME atayınız.
 update insanlar set isim = 'NO NAME' WHERE isim is null;
 -- ismi null olanlari 'NO NAME' yap
 select * from insanlar;
